@@ -4,15 +4,15 @@
 
 ```bash
 git clone https://github.com/Kichkun/age_model.git
-cd deepface
+cd age_model
 pip install .
 ```
 
 **Age recognition** 
 including asian, white, middle eastern, indian, latino and black predictions. 
 ```python
-from age_model import DeepFace
-demography = DeepFace.analyze("img4.jpg")
+from age_model import AgeModel
+demography = AgeModel.analyze("img4.jpg")
 #demographies = DeepFace.analyze(["img1.jpg", "img2.jpg", "img3.jpg"]) #analyzing multiple faces same time
 print("Age: ", demography["age"])
 ```
