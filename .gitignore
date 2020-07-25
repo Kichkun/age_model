@@ -1,0 +1,17 @@
+__pycache__/*
+basemodels/__pycache__/*
+configurations/__pycache__/*
+build/
+dist/
+Pipfile
+Pipfile.lock
+.mypy_cache/
+.vscode/
+.idea/
+deepface.egg-info/
+age_model/__pycache__/*
+age_model/commons/__pycache__/*
+age_model/basemodels/__pycache__/*
+age_model/extendedmodels/__pycache__/*
+age_model/subsidiarymodels/__pycache__/*
+tests/dataset/*.pkl
