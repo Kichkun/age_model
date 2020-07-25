@@ -9,7 +9,6 @@ pip install .
 ```
 
 **Age recognition** 
-including asian, white, middle eastern, indian, latino and black predictions. 
 ```python
 from age_model import AgeModel
 demography = AgeModel.analyze("img4.jpg")
