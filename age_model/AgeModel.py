@@ -225,11 +225,10 @@ def analyze(images, enforce_detection=True):
 
     # for img_path in img_paths:
     for j in global_pbar:
-        img = imgs[j]
 
         resp_obj = "{"
 
-        img_224 = detectFace(img, target_size=(224, 224), grayscale=False,
+        img_224 = detectFace(imgs[j], target_size=(224, 224), grayscale=False,
                              enforce_detection=enforce_detection)
         age_predictions = age_model.predict(img_224)[0, :]
         apparent_age = Age.findApparentAge(age_predictions)
