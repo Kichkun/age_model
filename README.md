@@ -14,8 +14,9 @@ from age_model import AgeModel
 import cv2
 img = cv2.imread('img4.jpg')
 demography = AgeModel.analyze(img)
-#demographies = DeepFace.analyze([img, img, img]) #analyzing multiple faces same time
+#demography = AgeModel.analyze([img, img]) #analyzing multiple faces same time
 print("Age: ", demography["age"])
+#print("Age: ", demography)
 ```
 
 <p align="center"><img src="https://makeameme.org/media/templates/250/the_most_interesting_man_in_the_world.jpg" width="30%" height="20%"></p>
