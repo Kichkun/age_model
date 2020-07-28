@@ -1,5 +1,6 @@
 import math
 import warnings
+from copy import copy
 
 from keras.preprocessing import image
 
@@ -42,7 +43,6 @@ def get_opencv_path():
 
 
 def detectFace(img, target_size=(224, 224), grayscale=False, enforce_detection=True):
-    img_path = ""
 
     # -----------------------
 
@@ -209,27 +209,27 @@ def detectFace(img, target_size=(224, 224), grayscale=False, enforce_detection=T
                 "Face could not be detected. Please confirm that the picture is a face photo or consider to set enforce_detection param to False.")
 
 
-def analyze(img_path, enforce_detection=True):
-    if type(img_path) == list:
-        img_paths = img_path.copy()
+def analyze(images, enforce_detection=True):
+    if type(images) == list:
+        imgs = copy(images)
         bulkProcess = True
     else:
-        img_paths = [img_path]
+        imgs = [images]
         bulkProcess = False
 
     age_model = Age.loadModel()
 
     resp_objects = []
 
-    global_pbar = tqdm(range(0, len(img_paths)), desc='Analyzing')
+    global_pbar = tqdm(range(0, len(imgs)), desc='Analyzing')
 
     # for img_path in img_paths:
     for j in global_pbar:
-        img_path = img_paths[j]
+        img = imgs[j]
 
         resp_obj = "{"
 
-        img_224 = detectFace(img_path, target_size=(224, 224), grayscale=False,
+        img_224 = detectFace(img, target_size=(224, 224), grayscale=False,
                              enforce_detection=enforce_detection)
         age_predictions = age_model.predict(img_224)[0, :]
         apparent_age = Age.findApparentAge(age_predictions)

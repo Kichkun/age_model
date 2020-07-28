@@ -11,8 +11,10 @@ pip install .
 **Age recognition** 
 ```python
 from age_model import AgeModel
-demography = AgeModel.analyze("img4.jpg")
-#demographies = DeepFace.analyze(["img1.jpg", "img2.jpg", "img3.jpg"]) #analyzing multiple faces same time
+import cv2
+img = cv2.imread('img4.jpg')
+demography = AgeModel.analyze(img)
+#demographies = DeepFace.analyze([img, img, img]) #analyzing multiple faces same time
 print("Age: ", demography["age"])
 ```
 
